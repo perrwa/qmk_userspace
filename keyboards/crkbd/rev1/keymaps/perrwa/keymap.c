@@ -43,7 +43,6 @@ enum custom_keycodes {
     SG_LBRC,
     SG_RBRC,
     LGUI_GRV,
-    SFT_ENT,
     RGUI_ENT
 };
 
@@ -52,7 +51,6 @@ enum custom_keycodes {
 #define SG_RBRC     SGUI(KC_RBRC)
 #define LGUI_GRV    LGUI(KC_GRV)
 
-#define SFT_ENT     SC_SENT
 #define RGUI_ENT    RGUI_T(KC_ENT)
 
 // Custom keycodes for layer keys
@@ -68,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       NAV_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,NAV_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, SC_SENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LALT, LOW_SPC, KC_LGUI,   RGUI_ENT, LOW_SPC, KC_RCTL
   //                                    `--------------------------'  `--------------------------'
