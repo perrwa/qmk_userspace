@@ -34,7 +34,7 @@ enum custom_keycodes {
     LOWER,
     NAVCON,
     SYSNUM,
-    RGBRST,
+    _RGBRST,
 
     _LWRSPC,
     _NAVESC,
@@ -95,11 +95,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_SYSNUM] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_NO,   KC_NO,  RGBRST,RGB_RMOD, RGB_MOD, RGB_TOG,                        KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_PPLS, KC_PAST,
+        KC_NO,   KC_NO,   KC_NO, _RGBRST, RGB_MOD, RGB_TOG,                        KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_PPLS, KC_PAST,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_TRNS,   KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,                        KC_NO,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_PSLS,
+      KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_PSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_NO,   KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,                        KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             KC_NO, KC_TRNS,  KC_NUM,    KC_TRNS,   KC_P0, KC_PDOT
   //                                    `--------------------------'  `--------------------------'
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case RGBRST:
+        case _RGBRST:
             #ifdef RGBLIGHT_ENABLE
             if (record->event.pressed) {
                 eeconfig_update_rgblight_default();
