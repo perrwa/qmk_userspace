@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_TRNS,  SYSNUM, KC_TRNS,    KC_TRNS,  SYSNUM, KC_TRNS
+                                          KC_TRNS,  SYSNUM, KC_TRNS,    KC_TRNS,   KC_NO, KC_TRNS
   //                                    `--------------------------'  `--------------------------'
   ),
   [_SYSNUM] = LAYOUT(
