@@ -38,7 +38,6 @@ enum custom_keycodes {
 
     _LWRSPC,
     _NAVESC,
-    _NAVQTE,
 
     _SGLBRC,
     _SGRBRC,
@@ -56,7 +55,6 @@ enum custom_keycodes {
 // Custom keycodes for layer keys
 #define _LWRSPC     LT(_LOWER,  KC_SPC)         // Dual function LOWER  with Space
 #define _NAVESC     LT(_NAVCON, KC_ESC)         // Dual function NAVPAD with Escape
-#define _NAVQTE     LT(_NAVCON, KC_QUOT)        // Dual function NAVPAD with Quote
 #define SYSNUM      MO(_SYSNUM)                 //
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -64,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _NAVESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, _NAVQTE,
+      _NAVESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, SC_SENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
