@@ -99,9 +99,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,                        KC_NO,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_PSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_NO,   KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,                        KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_NO, KC_PEQL,
+        KC_NO,   KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,                        KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_NO, KC_TRNS,   KC_NO,      KC_NO,   KC_P0, KC_PDOT
+                                            KC_NO, KC_TRNS,  KC_NUM,    KC_TRNS,   KC_P0, KC_PDOT
   //                                    `--------------------------'  `--------------------------'
   )
 };
