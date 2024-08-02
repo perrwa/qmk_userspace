@@ -84,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NAVCON] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT,   KC_NO, KC_MUTE, KC_VOLD, KC_VOLU,   KC_NO,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,   KC_NO,  KC_DEL,
+        KC_NO,   KC_NO, KC_MUTE, KC_VOLD, KC_VOLU,   KC_NO,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,   KC_NO,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_NO, KC_MRWD, KC_MPLY, KC_MFFD,   KC_NO,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   KC_NO, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  EE_CLR,
+      KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_TRNS,  SYSNUM, KC_TRNS,    KC_TRNS,  SYSNUM, KC_TRNS
   //                                    `--------------------------'  `--------------------------'
