@@ -40,18 +40,18 @@ enum custom_keycodes {
     _NAVESC,
     _NAVQTE,
 
-    SG_LBRC,
-    SG_RBRC,
+    _SGLBRC,
+    _SGRBRC,
     _GUIGRV,
-    _CMDENT
+    _GUIENT
 };
 
 // Custom keycodes for keymap shorthand
-#define SG_LBRC     SGUI(KC_LBRC)
-#define SG_RBRC     SGUI(KC_RBRC)
+#define _SGLBRC     SGUI(KC_LBRC)
+#define _SGRBRC     SGUI(KC_RBRC)
 #define _GUIGRV     LGUI(KC_GRV)
 
-#define _CMDENT     GUI_T(KC_ENT)
+#define _GUIENT     GUI_T(KC_ENT)
 
 // Custom keycodes for layer keys
 #define _LWRSPC     LT(_LOWER,  KC_SPC)         // Dual function LOWER  with Space
@@ -68,14 +68,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, SC_SENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          SC_LAPO, _LWRSPC, _CMDENT,    _CMDENT, _LWRSPC, SC_RCPC
+                                          SC_LAPO, _LWRSPC, _GUIENT,    _GUIENT, _LWRSPC, SC_RCPC
   //                                    `--------------------------'  `--------------------------'
   ),
   [_LOWER] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       SYSNUM,   KC_NO, _GUIGRV, SG_LBRC, SG_RBRC,   KC_NO,                        KC_NO, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC,   KC_NO,
+       SYSNUM,   KC_NO, _GUIGRV, _SGLBRC, _SGRBRC,   KC_NO,                        KC_NO, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC,   KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
