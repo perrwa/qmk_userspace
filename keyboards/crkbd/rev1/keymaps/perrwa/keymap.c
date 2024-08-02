@@ -26,23 +26,23 @@ enum crkbd_layers {
     _QWERTY,
     _LOWER,
     _NAVCON,
-    _SYSNUM,
+    _NUMPAD,
 };
 
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
-    LOWER,
-    NAVCON,
-    SYSNUM,
+    // LOWER,
+    // NAVCON,
     _RGBRST,
-
-    _LWRSPC,
-    _NAVESC,
 
     _SGLBRC,
     _SGRBRC,
     _GUIGRV,
-    _GUIENT
+    _GUIENT,
+
+    _LWRSPC,
+    _NAVESC,
+    _MO_NUM
 };
 
 // Custom keycodes for keymap shorthand
@@ -55,7 +55,7 @@ enum custom_keycodes {
 // Custom keycodes for layer keys
 #define _LWRSPC     LT(_LOWER,  KC_SPC)         // Dual function LOWER  with Space
 #define _NAVESC     LT(_NAVCON, KC_ESC)         // Dual function NAVPAD with Escape
-#define SYSNUM      MO(_SYSNUM)                 //
+#define _MO_NUM      MO(_NUMPAD)                 //
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       SYSNUM,   KC_NO, _GUIGRV, _SGLBRC, _SGRBRC,   KC_NO,                        KC_NO, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC,   KC_NO,
+      _MO_NUM,   KC_NO, _GUIGRV, _SGLBRC, _SGRBRC,   KC_NO,                        KC_NO, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC,   KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -88,10 +88,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_TRNS,  SYSNUM, KC_TRNS,    KC_TRNS,   KC_NO, KC_TRNS
+                                          KC_TRNS, _MO_NUM, KC_TRNS,    KC_TRNS,   KC_NO, KC_TRNS
   //                                    `--------------------------'  `--------------------------'
   ),
-  [_SYSNUM] = LAYOUT(
+  [_NUMPAD] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         KC_NO,   KC_NO,   KC_NO, _RGBRST, RGB_MOD, RGB_TOG,                        KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_PPLS, KC_PAST,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
