@@ -53,5 +53,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effects
     #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
     #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_JELLYBEAN_RAINDROPS
-    #define RGB_MATRIX_DEFAULT_ON false
+    // #define RGB_MATRIX_DEFAULT_ON false
 #endif
