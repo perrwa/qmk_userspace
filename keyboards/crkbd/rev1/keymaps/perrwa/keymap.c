@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUMPAD] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_NO,   KC_NO,   KC_NO, _RGBRST, RGB_MOD, RGB_TOG,                        KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_PPLS, KC_PAST,
+        KC_NO,   KC_NO,   KC_NO, _RGBRST, RM_NEXT, RM_TOGG,                        KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_PPLS, KC_PAST,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_PSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
