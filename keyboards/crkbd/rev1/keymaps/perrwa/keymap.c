@@ -119,13 +119,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case _RGBRST:
-            #ifdef RGBLIGHT_ENABLE
-            if (record->event.pressed) {
-                eeconfig_update_rgblight_default();
-                rgblight_enable();
-                RGB_current_mode = rgblight_config.mode;
-            }
-            #endif
             #ifdef RGB_MATRIX_ENABLE
             if (record->event.pressed) {
                 eeconfig_update_rgb_matrix_default();
@@ -138,13 +131,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-
-#ifdef RGB_MATRIX_ENABLE
-void suspend_power_down_keymap(void) {
-    rgb_matrix_set_suspend_state(true);
-}
-
-void suspend_wakeup_init_keymap(void) {
-    rgb_matrix_set_suspend_state(false);
-}
-#endif
