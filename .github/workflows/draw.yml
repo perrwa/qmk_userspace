@@ -1,0 +1,49 @@
+name: Draw keymaps
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "keyboards/**/keymap.c"
+      - "keymap_drawer.config.yaml"
+      - "keymap-drawer/*.yaml"
+
+concurrency:
+  group: draw
+  cancel-in-progress: true
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install keymap-drawer
+        run: pipx install keymap-drawer
+
+      - name: Draw crkbd SVG
+        run: >
+          keymap -c keymap_drawer.config.yaml draw
+          keymap-drawer/crkbd.yaml
+          -o keymap-drawer/crkbd.svg
+
+      - name: Draw portico SVG
+        run: >
+          keymap -c keymap_drawer.config.yaml draw
+          keymap-drawer/portico.yaml
+          -o keymap-drawer/portico.svg
+
+      - name: Draw lulu SVG
+        run: >
+          keymap -c keymap_drawer.config.yaml draw
+          keymap-drawer/lulu.yaml
+          -o keymap-drawer/lulu.svg
+
+      - name: Commit updated images
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: 'keymap-drawer/*.svg'
+          commit_message: "chore: update keymap-drawer visualizations"
