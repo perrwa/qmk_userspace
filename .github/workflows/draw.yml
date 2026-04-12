@@ -24,6 +24,21 @@ jobs:
       - name: Install keymap-drawer
         run: pipx install keymap-drawer
 
+      - name: Parse keymaps
+        run: |
+          jq -r '.build_targets[] | "\(.[0]) \(.[1])"' qmk.json | while read -r kb km; do
+            # Derive short keyboard name by stripping revision/variant suffixes
+            name=$(echo "$kb" | tr '/' '\n' \
+              | grep -vE '^(rev[0-9]+|avr|rp2040|stm32|nrf52|arm|ble|usb)$' \
+              | tail -1)
+            keymap_c="keyboards/${kb}/keymaps/${km}/keymap.c"
+            if [ -f "$keymap_c" ]; then
+              echo "Parsing ${kb}:${km} → keymap-drawer/${name}.yaml"
+              keymap parse -c keymap_drawer.config.yaml -q "$kb" "$keymap_c" \
+                > "keymap-drawer/${name}.yaml"
+            fi
+          done
+
       - name: Draw SVGs
         run: |
           for yaml in keymap-drawer/*.yaml; do
@@ -51,5 +66,5 @@ jobs:
       - name: Commit updated images
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: 'keymap-drawer/*.svg keymap-drawer/README.md'
+          file_pattern: 'keymap-drawer/*.yaml keymap-drawer/*.svg keymap-drawer/README.md'
           commit_message: "chore: update keymap-drawer visualizations"
