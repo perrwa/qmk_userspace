@@ -32,15 +32,6 @@ enum crkbd_layers {
 
 enum custom_keycodes {
     _RGBRST = SAFE_RANGE,
-
-    _SGLBRC,
-    _SGRBRC,
-    _GUIENT,
-
-    _LWRSPC,
-    _NAVESC,
-    _MO_NUM,
-    _MO_LWR,
 };
 
 // Custom keycodes for keymap shorthand
