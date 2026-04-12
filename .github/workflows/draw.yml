@@ -76,6 +76,7 @@ jobs:
           done
 
       - name: Generate keymap-drawer README
+        shell: bash
         run: |
           cd keymap-drawer
           shopt -s nullglob
