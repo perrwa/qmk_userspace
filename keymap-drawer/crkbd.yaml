@@ -102,8 +102,8 @@ layers:
   - MO( NUMPAD)
   - 'NO'
   - 'NO'
-  - Sft+Gui+LBRC
-  - Sft+Gui+RBRC
+  - $$material:switch_left$$
+  - $$material:switch_right$$
   - '['
   - ']'
   - '-'

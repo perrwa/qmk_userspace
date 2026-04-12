@@ -75,6 +75,12 @@
 <svg id="material:space_bar">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-360v-240h60v180h520v-180h60v240H160Z"/></svg>
 </svg>
+<svg id="material:switch_left">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-200 120-480l280-280v560Zm-55-133v-294L198-480l147 147Zm215 133v-560l280 280-280 280Z"/></svg>
+</svg>
+<svg id="material:switch_right">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-200 120-480l280-280v560Zm160 0v-560l280 280-280 280Zm55-133 147-147-147-147v294Z"/></svg>
+</svg>
 <svg id="material:volume_down">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M200-360v-240h160l200-200v640L360-360H200Zm420 48v-337q54 17 87 64t33 105q0 59-33 105t-87 63ZM500-648 387-540H260v120h127l113 109v-337ZM378-480Z"/></svg>
 </svg>
@@ -659,15 +665,11 @@ path.combo {
 </g>
 <g transform="translate(147, 63)" class="key keypos-15">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Sft+Gui</tspan><tspan x="0" dy="1.2em">+LBRC</tspan>
-</text>
+<use href="#material:switch_left" xlink:href="#material:switch_left" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:switch_left"/>
 </g>
 <g transform="translate(189, 68)" class="key keypos-16">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Sft+Gui</tspan><tspan x="0" dy="1.2em">+RBRC</tspan>
-</text>
+<use href="#material:switch_right" xlink:href="#material:switch_right" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:switch_right"/>
 </g>
 <g transform="translate(231, 74)" class="key keypos-17">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
