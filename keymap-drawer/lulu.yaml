@@ -2,7 +2,8 @@ layout: {qmk_keyboard: boardsource/lulu/avr}
 layers:
   QWERTY: ['$$material:logout$$', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '`', '$$material:keyboard_tab$$', Q, W, E, R, T, Y, U, I, O, P, '-', '$$material:keyboard_control_key$$',
     A, S, D, F, G, H, J, K, L, ;, '''', '$$material:shift$$', Z, X, C, V, B, '[', ']', N, M, ',', ., /, '$$material:shift$$', '$$material:keyboard_option_key$$',
-    '$$material:keyboard_command_key$$', MO( LOWER), '$$material:space_bar$$', '$$material:keyboard_return$$', MO( RAISE), '$$material:keyboard_backspace$$', '$$material:keyboard_command_key$$']
+    '$$material:keyboard_command_key$$', '$$material:more_up$$', '$$material:space_bar$$', '$$material:keyboard_return$$', '$$material:more_up$$', '$$material:keyboard_backspace$$',
+    '$$material:keyboard_command_key$$']
   RAISE:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
