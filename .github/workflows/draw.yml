@@ -1,7 +1,7 @@
 # Auto-generate keymap visualizations from keymap.c files.
 # Uses qmk c2json to convert C → JSON, then keymap-drawer to parse → draw SVGs.
 # Based on: https://github.com/caksoylar/keymap-drawer/issues/177
-name: Draw keymaps
+name: Draw QMK keymaps
 on:
   workflow_dispatch:
   push:
