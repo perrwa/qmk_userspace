@@ -4,6 +4,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 concurrency:
   group: build-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
@@ -11,8 +14,6 @@ concurrency:
 jobs:
   build:
     name: 'QMK Userspace Build'
-    permissions:
-      contents: read
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: qmk/qmk_firmware
