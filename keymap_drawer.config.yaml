@@ -43,6 +43,7 @@ draw_config:
 parse_config:
   qmk_keycode_map:
     # Special keys → Material glyphs
+    KC_NO: ""
     KC_TAB: $$material:keyboard_tab$$
     KC_BSPC: $$material:keyboard_backspace$$
     KC_DEL: $$material:delete$$
