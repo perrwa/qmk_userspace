@@ -34,7 +34,7 @@ jobs:
             keymap_c="keyboards/${kb}/keymaps/${km}/keymap.c"
             if [ -f "$keymap_c" ]; then
               echo "Parsing ${kb}:${km} → keymap-drawer/${name}.yaml"
-              keymap parse -c keymap_drawer.config.yaml -q "$kb" "$keymap_c" \
+              keymap -c keymap_drawer.config.yaml parse -q "$kb" "$keymap_c" \
                 > "keymap-drawer/${name}.yaml"
             fi
           done
