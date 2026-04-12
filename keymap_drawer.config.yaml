@@ -173,6 +173,8 @@ parse_config:
     SC_SENT: {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
     SC_LAPO: {t: (, h: '$$material:keyboard_option_key$$'}
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
+    LSG(KC_LBRC): $$material:switch_left$$
+    LSG(KC_RBRC): $$material:switch_right$$
 
   layer_legend_map:
     LOWER: $$more_up$$
