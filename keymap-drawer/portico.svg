@@ -212,16 +212,16 @@ path.combo {
 .left       { fill: #FFD700; }
 .held       { fill: #ffeedd; }
 /* Per-layer tap colors — crkbd */
-.layer-Gamer .tap   { fill: #2E8B57; }
-.layer-Symbols .tap { fill: #00CED1; }
-.layer-Nav .tap     { fill: #FF7F50; }
-.layer-Numpad .tap  { fill: #9370DB; }
+.layer-GAMER .tap   { fill: #2E8B57; }
+.layer-LOWER .tap   { fill: #00CED1; }
+.layer-NAVPLY .tap  { fill: #FF7F50; }
+.layer-NUMPAD .tap  { fill: #9370DB; }
 /* Per-layer tap colors — portico */
-.layer-Fn .tap      { fill: #4682B4; }
+.layer-1 .tap       { fill: #4682B4; }
 /* Per-layer tap colors — lulu */
-.layer-Lower .tap   { fill: #00CED1; }
-.layer-Raise .tap   { fill: #FF7F50; }
-.layer-Adjust .tap  { fill: #DAA520; }
+.layer-LOWER .tap   { fill: #00CED1; }
+.layer-RAISE .tap   { fill: #FF7F50; }
+.layer-ADJUST .tap  { fill: #DAA520; }
 /* Custom glyph colors */
 .more_down  { fill: #FF7F50 !important; }
 .more_up    { fill: #00CED1 !important; }
