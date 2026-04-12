@@ -165,6 +165,12 @@ parse_config:
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
     SGUI(KC_LBRC): $$material:switch_left$$
     SGUI(KC_RBRC): $$material:switch_right$$
+    "LT( NAVPLY,ESC)": {t: '$$material:logout$$', h: '$$material:more_down$$'}
+    "LT( LOWER,SPC)": {t: '$$material:space_bar$$', h: '$$material:more_up$$'}
+    "MO( LOWER)": $$material:more_up$$
+    "MO( RAISE)": $$material:more_up$$
+    "MO( NUMPAD)": $$material:calculate$$
+    "TG( GAMER)": $$material:joystick$$
 
   layer_legend_map:
     LOWER: $$material:more_up$$
