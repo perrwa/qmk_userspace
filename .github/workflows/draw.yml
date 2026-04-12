@@ -31,8 +31,25 @@ jobs:
               -o "${yaml%.yaml}.svg"
           done
 
+      - name: Generate keymap-drawer README
+        run: |
+          cd keymap-drawer
+          shopt -s nullglob
+          {
+            echo "# Keymap Visualizations"
+            echo ""
+            echo "Auto-generated from keymap YAML definitions via [keymap-drawer](https://github.com/caksoylar/keymap-drawer)."
+            for svg in *.svg; do
+              name="${svg%.svg}"
+              echo ""
+              echo "## ${name}"
+              echo ""
+              echo "![${name}](${svg})"
+            done
+          } > README.md
+
       - name: Commit updated images
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: 'keymap-drawer/*.svg'
+          file_pattern: 'keymap-drawer/*.svg keymap-drawer/README.md'
           commit_message: "chore: update keymap-drawer visualizations"
