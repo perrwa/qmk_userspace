@@ -1,9 +1,15 @@
 name: Build QMK firmware
-
-on: [push, workflow_dispatch]
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: build-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -12,9 +18,3 @@ jobs:
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
-
-  publish:
-    name: 'QMK Userspace Publish'
-    uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
-    if: always() && !cancelled() && github.ref == 'refs/heads/main'
-    needs: build
