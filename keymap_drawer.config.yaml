@@ -165,14 +165,14 @@ parse_config:
     _RGBRST: "RGB Reset"
     _SGLBRC: $$material:switch_left$$
     _SGRBRC: $$material:switch_right$$
+    # Expanded forms when cpp resolves SGUI() macros
+    LSG(KC_LBRC): $$material:switch_left$$
+    LSG(KC_RBRC): $$material:switch_right$$
 
   raw_binding_map:
     SC_SENT: {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
     SC_LAPO: {t: (, h: '$$material:keyboard_option_key$$'}
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
-    # Expanded forms from qmk c2json (cpp expands #define macros)
-    Sft+Gui+LBRC: $$material:switch_left$$
-    Sft+Gui+RBRC: $$material:switch_right$$
 
   layer_legend_map:
     LOWER: $$more_up$$
