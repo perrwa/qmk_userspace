@@ -1,6 +1,6 @@
 QMK external userspace repo — custom keymaps maintained separately from qmk_firmware via overlay directory. Build targets in `qmk.json`.
 
-Build: `qmk compile -kb <board> -km <keymap>` or `make <board>:<keymap>`. Compile all: `qmk userspace-compile`. Flash: `qmk flash -kb <board> -km <keymap>`. Requires `qmk config user.overlay_dir="$(realpath .)"`. CI via `build_binaries.yaml` on push.
+Build: `qmk compile -kb <board> -km <keymap>` or `make <board>:<keymap>`. Compile all: `qmk userspace-compile`. Flash: `qmk flash -kb <board> -km <keymap>`. Requires `qmk config user.overlay_dir="$(realpath .)"`. CI via `.github/workflows/build.yml` (PRs) and `.github/workflows/release.yml` (pushes to main).
 
 Keymaps at `keyboards/<board>/keymaps/<name>/`: `keymap.c` (layers, keycodes), `config.h` (hardware config), `rules.mk` (feature flags).
 

@@ -15,7 +15,8 @@ Custom keymaps maintained separately from the [main QMK repository](https://gith
 1. In the GitHub Actions tab, enable workflows
 1. Push your changes to your forked GitHub repository
 1. Wait for the actions run to complete
-1. Grab the latest firmware from the [Releases](../../releases) tab
+1. If you pushed to `main`, grab the latest firmware from the [Releases](../../releases) tab
+1. If you pushed to any other branch, download the build artifacts from that workflow run instead
 
 ## Building locally
 
@@ -37,7 +38,7 @@ qmk userspace-list
 
 ## Customizing the GitHub Actions build
 
-To point the build at a different QMK repository or branch, edit `.github/workflows/build_binaries.yaml`:
+To point the build at a different QMK repository or branch, edit `.github/workflows/build.yml` and `.github/workflows/release.yml`:
 
 ```yaml
     with:
