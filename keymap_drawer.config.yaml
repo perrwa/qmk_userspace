@@ -133,7 +133,7 @@ parse_config:
     KC_PAST: "*"
     KC_PSLS: /
     KC_PDOT: .
-    KC_NUM: $$material:123$$
+    KC_NUM: $$material:pin$$
 
     # RGB / special (display as icons or short labels)
     RM_TOGG: $$material:lightbulb$$
@@ -141,18 +141,18 @@ parse_config:
     RM_PREV: $$material:palette$$
     RM_VALU: $$material:brightness_high$$
     RM_VALD: $$material:brightness_low$$
-    RM_SATU: "Sat+"
-    RM_SATD: "Sat-"
+    RM_SATU: $$material:humidity_high$$
+    RM_SATD: $$material:humidity_low$$
     RGB_TOG: $$material:lightbulb$$
     RGB_MOD: $$material:palette$$
-    RGB_SPI: "Spd+"
-    RGB_HUI: "Hue+"
-    RGB_SAI: "Sat+"
+    RGB_SPI: $$material:speed$$
+    RGB_HUI: $$material:colors$$
+    RGB_SAI: $$material:humidity_high$$
     RGB_VAI: $$material:brightness_high$$
-    NK_TOGG: "NKey"
+    NK_TOGG: $$material:bolt_boost$$
 
     # Custom keycodes from crkbd keymap
-    _RGBRST: "RGB Reset"
+    _RGBRST: $$material:brightness_alert$$
     _SGLBRC: $$material:switch_left$$
     _SGRBRC: $$material:switch_right$$
     # Expanded forms when cpp resolves SGUI() macros
