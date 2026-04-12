@@ -43,7 +43,6 @@ draw_config:
 parse_config:
   qmk_keycode_map:
     # Special keys → Material glyphs
-    KC_NO: ""
     KC_TAB: $$material:keyboard_tab$$
     KC_BSPC: $$material:keyboard_backspace$$
     KC_DEL: $$material:delete$$
@@ -161,6 +160,7 @@ parse_config:
     SGUI(KC_RBRC): $$material:switch_right$$
 
   raw_binding_map:
+    KC_NO: ""
     SC_SENT: {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
     SC_LAPO: {t: (, h: '$$material:keyboard_option_key$$'}
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
