@@ -65,8 +65,8 @@ layers:
   LOWER:
   - $$material:palette$$
   - $$material:palette$$
-  - Sat+
-  - Sat-
+  - $$material:humidity_high$$
+  - $$material:humidity_low$$
   - $$material:brightness_high$$
   - $$material:brightness_low$$
   - {t: ▽, type: trans}

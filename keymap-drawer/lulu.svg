@@ -18,6 +18,12 @@
 <svg id="material:brightness_low">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M481-29 346-160H160v-186L26-480l134-134v-186h186l135-134 133 134h186v186l134 134-134 134v186H614L481-29Zm138-314q57-57 57-138t-57-138q-57-57-138-57t-138 57q-57 57-57 138t57 138q57 57 138 57t138-57Zm-234-42q-39-39-39-96t39-96q39-39 96-39t96 39q39 39 39 96t-39 96q-39 39-96 39t-96-39Zm96 272 108-107h151v-151l109-109-109-109v-151H589L481-849 371-740H220v151L111-480l109 109v151h150l111 107Zm0-368Z"/></svg>
 </svg>
+<svg id="material:humidity_high">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-100q-133 0-226.5-91.71T160-415q0-63.14 24.5-120.77Q209-593.4 254-637.5L480-860l226 222.5q45 44.1 69.5 101.73T800-415q0 131.58-93.5 223.29Q613-100 480-100Z"/></svg>
+</svg>
+<svg id="material:humidity_low">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-100q-133 0-226.5-91.71T160-415q0-63.14 24.5-120.77Q209-593.4 254-637.5L480-860l226 222.5q45 44.1 69.5 101.73T800-415q0 131.58-93.5 223.29Q613-100 480-100Zm184-134.07q76-74.06 76-181.11Q740-466 720.5-512 701-558 666-593L480-776 294-593q-35 35-54.5 81-19.5 45.99-19.5 96.86Q220-308 295.76-234q75.77 74 184 74Q588-160 664-234.07Z"/></svg>
+</svg>
 <svg id="material:keyboard_backspace">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M359-242 120-481l239-239 43 43-166 166h604v60H236l166 166-43 43Z"/></svg>
 </svg>
@@ -195,10 +201,10 @@ path.combo {
 .layer-LOWER .tap   { fill: #00CED1; }
 .layer-RAISE .tap   { fill: #FF7F50; }
 .layer-ADJUST .tap  { fill: #DAA520; }
-/* Custom glyph colors */
-.more_down  { fill: #FF7F50 !important; }
-.more_up    { fill: #00CED1 !important; }
-.calculate  { fill: #9370DB !important; }</style>
+/* Material glyph colors for layer legends */
+.material-more_down  { fill: #FF7F50 !important; }
+.material-more_up    { fill: #00CED1 !important; }
+.material-calculate  { fill: #9370DB !important; }</style>
 <g transform="translate(30, 0)" class="layer-QWERTY">
 <text x="0" y="28" class="label" id="QWERTY">QWERTY:</text>
 <g transform="translate(0, 56)">
@@ -690,11 +696,11 @@ path.combo {
 </g>
 <g transform="translate(105, 26)" class="key keypos-2">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">Sat+</text>
+<use href="#material:humidity_high" xlink:href="#material:humidity_high" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:humidity_high"/>
 </g>
 <g transform="translate(147, 21)" class="key keypos-3">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">Sat-</text>
+<use href="#material:humidity_low" xlink:href="#material:humidity_low" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:humidity_low"/>
 </g>
 <g transform="translate(189, 26)" class="key keypos-4">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>

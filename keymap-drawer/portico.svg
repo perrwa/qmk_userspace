@@ -12,11 +12,20 @@
 <svg id="material:arrow_right">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-280v-400l200 200-200 200Z"/></svg>
 </svg>
+<svg id="material:bolt_boost">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m536-120 42-289H338l316-431h22l-42 288h241L559-120h-23ZM120-244v-60h335l-9 60H120ZM80-450v-60h199l-40 60H80Zm80-207v-60h271l-44 60H160Z"/></svg>
+</svg>
 <svg id="material:brightness_high">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M481-29 346-160H160v-186L26-480l134-134v-186h186l135-134 133 134h186v186l134 134-134 134v186H614L481-29Zm138-314.05q57-57.06 57-138Q676-562 618.95-619q-57.06-57-138-57Q400-676 343-618.95q-57 57.06-57 138Q286-400 343.05-343q57.06 57 138 57Q562-286 619-343.05ZM481-481Zm0 368 107.92-107H740v-151l109-109-109-109v-151H589L481-849 371-740H220v151L111-480l109 109v151h150l111 107Zm-1-368Z"/></svg>
 </svg>
+<svg id="material:colors">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M348-138 98-388q-9-9.12-13.5-20.06T80-430.7q0-11.7 4.5-22.5T98-473l250-250-114-114 43-43 406 407q9.47 9 13.74 19.8 4.26 10.8 4.26 22.5t-4.26 22.64Q692.47-397.12 683-388L433-138q-9 9-19.8 13.5t-22.5 4.5q-11.7 0-22.64-4.5Q357.12-129 348-138Zm43-542L141-430h500L391-680Zm408.66 560q-33.35 0-56.5-23.18Q720-166.36 720-200q0-26.28 10-49.64T756-293l44-57 44 57q15 20 25.5 43.36T880-200q0 33.64-23.5 56.82T799.66-120Z"/></svg>
+</svg>
 <svg id="material:delete">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M261-120q-24.75 0-42.37-17.63Q201-155.25 201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>
+</svg>
+<svg id="material:humidity_high">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-100q-133 0-226.5-91.71T160-415q0-63.14 24.5-120.77Q209-593.4 254-637.5L480-860l226 222.5q45 44.1 69.5 101.73T800-415q0 131.58-93.5 223.29Q613-100 480-100Z"/></svg>
 </svg>
 <svg id="material:keyboard_backspace">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M359-242 120-481l239-239 43 43-166 166h604v60H236l166 166-43 43Z"/></svg>
@@ -71,6 +80,9 @@
 </svg>
 <svg id="material:space_bar">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-360v-240h60v180h520v-180h60v240H160Z"/></svg>
+</svg>
+<svg id="material:speed">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M473.5-303.5Q517-305 537-336l216-339-335 219q-30 20-32 64t21 67q23 23 66.5 21.5ZM478-799q57 0 119 18.5T716-717l-52 37q-45-30-96.5-44.5T477.98-739q-140.47 0-239.23 100.22Q140-538.57 140-396.02 140-351 152.5-305q12.5 46 35.5 85h579q22-36 35-84t13-94q0-42-12.5-90.5T758-578l39-52q38 56 57 112.5T875-404q2 60-12 113t-41 98q-12 23-25.5 28t-33.5 5H192q-17 0-33.5-8.5T134-193q-26-48-40-97.5T80-396q0-83 31.5-156.5t85.5-128Q251-735 323.68-767T478-799Zm-9 331Z"/></svg>
 </svg>
 <svg id="material:volume_down">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M200-360v-240h160l200-200v640L360-360H200Zm420 48v-337q54 17 87 64t33 105q0 59-33 105t-87 63ZM500-648 387-540H260v120h127l113 109v-337ZM378-480Z"/></svg>
@@ -222,10 +234,10 @@ path.combo {
 .layer-LOWER .tap   { fill: #00CED1; }
 .layer-RAISE .tap   { fill: #FF7F50; }
 .layer-ADJUST .tap  { fill: #DAA520; }
-/* Custom glyph colors */
-.more_down  { fill: #FF7F50 !important; }
-.more_up    { fill: #00CED1 !important; }
-.calculate  { fill: #9370DB !important; }</style>
+/* Material glyph colors for layer legends */
+.material-more_down  { fill: #FF7F50 !important; }
+.material-more_up    { fill: #00CED1 !important; }
+.material-calculate  { fill: #9370DB !important; }</style>
 <g transform="translate(30, 0)" class="layer-L0">
 <text x="0" y="28" class="label" id="L0">L0:</text>
 <g transform="translate(0, 56)">
@@ -573,15 +585,15 @@ path.combo {
 </g>
 <g transform="translate(126, 63)" class="key keypos-17">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">Spd+</text>
+<use href="#material:speed" xlink:href="#material:speed" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:speed"/>
 </g>
 <g transform="translate(168, 63)" class="key keypos-18">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">Hue+</text>
+<use href="#material:colors" xlink:href="#material:colors" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:colors"/>
 </g>
 <g transform="translate(210, 63)" class="key keypos-19">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">Sat+</text>
+<use href="#material:humidity_high" xlink:href="#material:humidity_high" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:humidity_high"/>
 </g>
 <g transform="translate(252, 63)" class="key keypos-20">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
@@ -705,7 +717,7 @@ path.combo {
 </g>
 <g transform="translate(326, 147)" class="key keypos-50">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<text x="0" y="0" class="key tap">NKey</text>
+<use href="#material:bolt_boost" xlink:href="#material:bolt_boost" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:bolt_boost"/>
 </g>
 <g transform="translate(368, 147)" class="key trans keypos-51">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key trans"/>

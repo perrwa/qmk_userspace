@@ -176,7 +176,7 @@ layers:
   - 'NO'
   - 'NO'
   - 'NO'
-  - RGB Reset
+  - $$material:brightness_alert$$
   - $$material:palette$$
   - $$material:lightbulb$$
   - 'NO'
@@ -211,7 +211,7 @@ layers:
   - 'NO'
   - TG( GAMER)
   - {t: ▽, type: trans}
-  - $$material:123$$
+  - $$material:pin$$
   - {t: ▽, type: trans}
   - '0'
   - .

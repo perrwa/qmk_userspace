@@ -23,9 +23,9 @@ layers:
   - {t: ▽, type: trans}
   - $$material:lightbulb$$
   - $$material:palette$$
-  - Spd+
-  - Hue+
-  - Sat+
+  - $$material:speed$$
+  - $$material:colors$$
+  - $$material:humidity_high$$
   - $$material:brightness_high$$
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -56,7 +56,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - NKey
+  - $$material:bolt_boost$$
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
