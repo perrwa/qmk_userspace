@@ -1,0 +1,177 @@
+draw_config:
+  key_w: 45
+  key_h: 42
+  split_gap: 30.0
+  key_rx: 6.0
+  key_ry: 6.0
+  inner_pad_w: 2.0
+  inner_pad_h: 2.0
+  outer_pad_w: 30.0
+  outer_pad_h: 56.0
+  line_spacing: 1.2
+  small_pad: 2.0
+  append_colon_to_layer_header: true
+  shrink_wide_legends: 7
+  style_layer_activators: true
+  glyph_tap_size: 14
+  glyph_hold_size: 12
+  glyph_shifted_size: 10
+  svg_extra_style: |-
+    /* Base layer / tap default */
+    .tap        { fill: #1A1F71; font-weight: bold; }
+    .hold       { fill: #FF7F50; }
+    .shifted    { fill: #00CED1; }
+    .right      { fill: #9370DB; }
+    .left       { fill: #FFD700; }
+    .held       { fill: #ffeedd; }
+    /* Per-layer tap colors — crkbd */
+    .layer-Gamer .tap   { fill: #2E8B57; }
+    .layer-Symbols .tap { fill: #00CED1; }
+    .layer-Nav .tap     { fill: #FF7F50; }
+    .layer-Numpad .tap  { fill: #9370DB; }
+    /* Per-layer tap colors — portico */
+    .layer-Fn .tap      { fill: #4682B4; }
+    /* Per-layer tap colors — lulu */
+    .layer-Lower .tap   { fill: #00CED1; }
+    .layer-Raise .tap   { fill: #FF7F50; }
+    .layer-Adjust .tap  { fill: #DAA520; }
+    /* Custom glyph colors */
+    .more_down  { fill: #FF7F50 !important; }
+    .more_up    { fill: #00CED1 !important; }
+    .calculate  { fill: #9370DB !important; }
+  glyphs:
+    more_down: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
+      d="M200-200v-440h80v360h360v80H200Zm200-200v-440h80v360h360v80H400Z"/></svg>
+    more_up: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
+      d="M680-320v-360H320v-80h440v440h-80ZM480-120v-360H120v-80h440v440h-80Z"/></svg>
+    calculate: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
+      d="M320-240h60v-80h80v-60h-80v-80h-60v80h-80v60h80v80Zm200-30h200v-60H520v60Zm0-100h200v-60H520v60Zm44-152
+      56-56 56 56 42-42-56-58 56-56-42-42-56 56-56-56-42 42 56 56-56 58 42 42Zm-314-70h200v-60H250v60Zm-50
+      472q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0
+      33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+
+parse_config:
+  qmk_keycode_map:
+    # Special keys → Material glyphs
+    KC_TAB: $$material:keyboard_tab$$
+    KC_BSPC: $$material:keyboard_backspace$$
+    KC_DEL: $$material:delete$$
+    KC_ESC: $$material:logout$$
+    KC_SPC: $$material:space_bar$$
+    KC_ENT: $$material:keyboard_return$$
+    KC_CAPS: $$material:lock$$
+
+    # Modifiers → Material glyphs
+    KC_LSFT: $$material:shift$$
+    KC_RSFT: $$material:shift$$
+    KC_LALT: $$material:keyboard_option_key$$
+    KC_RALT: $$material:keyboard_option_key$$
+    KC_LGUI: $$material:keyboard_command_key$$
+    KC_RGUI: $$material:keyboard_command_key$$
+    KC_LCTL: $$material:keyboard_control_key$$
+    KC_RCTL: $$material:keyboard_control_key$$
+
+    # Arrow keys
+    KC_LEFT: $$material:arrow_left$$
+    KC_RGHT: $$material:arrow_right$$
+    KC_UP: $$material:arrow_drop_up$$
+    KC_DOWN: $$material:arrow_drop_down$$
+
+    # Navigation
+    KC_HOME: $$material:keyboard_double_arrow_left$$
+    KC_END: $$material:keyboard_double_arrow_right$$
+    KC_PGUP: $$material:keyboard_double_arrow_up$$
+    KC_PGDN: $$material:keyboard_double_arrow_down$$
+
+    # Media
+    KC_MUTE: $$material:no_sound$$
+    KC_VOLD: $$material:volume_down$$
+    KC_VOLU: $$material:volume_up$$
+    KC_MRWD: $$material:skip_previous$$
+    KC_MPLY: $$material:play_pause$$
+    KC_MFFD: $$material:skip_next$$
+    KC_MPRV: $$material:skip_previous$$
+    KC_MNXT: $$material:skip_next$$
+
+    # Symbols (override for cleaner display)
+    KC_EXLM: "!"
+    KC_AT: "@"
+    KC_HASH: "#"
+    KC_DLR: $
+    KC_PERC: "%"
+    KC_CIRC: ^
+    KC_AMPR: "&"
+    KC_ASTR: "*"
+    KC_LPRN: (
+    KC_RPRN: )
+    KC_EQL: "="
+    KC_PLUS: +
+    KC_MINS: "-"
+    KC_UNDS: _
+    KC_SLSH: /
+    KC_QUES: "?"
+    KC_BSLS: \
+    KC_PIPE: "|"
+    KC_SCLN: ;
+    KC_COLN: ":"
+    KC_QUOT: "'"
+    KC_DQUO: '"'
+    KC_COMM: ","
+    KC_LT: <
+    KC_DOT: .
+    KC_GT: ">"
+    KC_LBRC: "["
+    KC_LCBR: "{"
+    KC_RBRC: "]"
+    KC_RCBR: "}"
+    KC_GRV: "`"
+    KC_TILD: "~"
+
+    # Numpad (display as plain digits/symbols)
+    KC_P0: "0"
+    KC_P1: "1"
+    KC_P2: "2"
+    KC_P3: "3"
+    KC_P4: "4"
+    KC_P5: "5"
+    KC_P6: "6"
+    KC_P7: "7"
+    KC_P8: "8"
+    KC_P9: "9"
+    KC_PPLS: +
+    KC_PMNS: "-"
+    KC_PAST: "*"
+    KC_PSLS: /
+    KC_PDOT: .
+    KC_NUM: $$material:123$$
+
+    # RGB / special (display as icons or short labels)
+    RM_TOGG: $$material:lightbulb$$
+    RM_NEXT: $$material:palette$$
+    RM_PREV: $$material:palette$$
+    RM_VALU: $$material:brightness_high$$
+    RM_VALD: $$material:brightness_low$$
+    RM_SATU: "Sat+"
+    RM_SATD: "Sat-"
+    RGB_TOG: $$material:lightbulb$$
+    RGB_MOD: $$material:palette$$
+    RGB_SPI: "Spd+"
+    RGB_HUI: "Hue+"
+    RGB_SAI: "Sat+"
+    RGB_VAI: $$material:brightness_high$$
+    NK_TOGG: "NKey"
+
+    # Custom keycodes from crkbd keymap
+    _RGBRST: "RGB Reset"
+    _SGLBRC: $$material:switch_left$$
+    _SGRBRC: $$material:switch_right$$
+
+  raw_binding_map:
+    SC_SENT: {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
+    SC_LAPO: {t: (, h: '$$material:keyboard_option_key$$'}
+    SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
+
+  layer_legend_map:
+    Symbols: $$more_up$$
+    Nav: $$more_down$$
+    Numpad: $$calculate$$
