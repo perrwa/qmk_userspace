@@ -172,6 +172,8 @@ parse_config:
     "MO(_RAISE)": $$material:more_up$$
     "MO(_NUMPAD)": $$material:calculate$$
     "TG(_GAMER)": $$material:joystick$$
+    "LGUI_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_command_key$$'}
+    "RCTL_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_control_key$$'}
 
   layer_legend_map:
     LOWER: $$material:more_up$$
