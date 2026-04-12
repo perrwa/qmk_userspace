@@ -63,8 +63,11 @@ jobs:
                 layer_arg="-l $layers"
               fi
               qmk c2json -kb "$kb" -km "$km" "$keymap_c" \
+                | tee /tmp/${name}_raw.json \
                 | keymap -c keymap_drawer.config.yaml parse -q - $layer_arg \
                 > "keymap-drawer/${name}.yaml"
+              echo "--- Raw c2json keycodes for ${name} ---"
+              jq -r '.layers[][] ' /tmp/${name}_raw.json | sort -u | head -40
               # Replace generic LAYOUT with just the keyboard reference
               sed -i "s|^layout:.*|layout: {qmk_keyboard: ${kb}}|" \
                 "keymap-drawer/${name}.yaml"
