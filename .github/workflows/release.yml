@@ -9,6 +9,9 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: write
+
 concurrency:
   group: release
   cancel-in-progress: false
@@ -16,8 +19,6 @@ concurrency:
 jobs:
   build:
     name: 'QMK Userspace Build'
-    permissions:
-      contents: read
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: qmk/qmk_firmware
@@ -27,8 +28,6 @@ jobs:
     name: 'QMK Userspace Release'
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout (for tag listing)
         uses: actions/checkout@v4
