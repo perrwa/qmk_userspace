@@ -1,0 +1,38 @@
+name: Draw keymaps
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "keyboards/**/keymap.c"
+      - "keymap_drawer.config.yaml"
+      - "keymap-drawer/*.yaml"
+
+concurrency:
+  group: draw
+  cancel-in-progress: true
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install keymap-drawer
+        run: pipx install keymap-drawer
+
+      - name: Draw SVGs
+        run: |
+          for yaml in keymap-drawer/*.yaml; do
+            keymap -c keymap_drawer.config.yaml draw "$yaml" \
+              -o "${yaml%.yaml}.svg"
+          done
+
+      - name: Commit updated images
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: 'keymap-drawer/*.svg'
+          commit_message: "chore: update keymap-drawer visualizations"
