@@ -46,7 +46,9 @@ jobs:
           qmk config user.overlay_dir=$GITHUB_WORKSPACE
 
       - name: Generate YAMLs and draw SVGs
+        shell: bash
         run: |
+          set -o pipefail
           jq -r '.build_targets[] | "\(.[0]) \(.[1])"' qmk.json | while read -r kb km; do
             name=$(echo "$kb" | tr '/' '\n' \
               | grep -vE '^(rev[0-9]+|avr|rp2040|stm32|nrf52|arm|ble|usb)$' \
