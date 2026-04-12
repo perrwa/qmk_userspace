@@ -45,7 +45,7 @@ jobs:
           qmk config user.qmk_home=$GITHUB_WORKSPACE/qmk_firmware
           qmk config user.overlay_dir=$GITHUB_WORKSPACE
 
-      - name: Generate keymap YAMLs
+      - name: Generate YAMLs and draw SVGs
         run: |
           jq -r '.build_targets[] | "\(.[0]) \(.[1])"' qmk.json | while read -r kb km; do
             name=$(echo "$kb" | tr '/' '\n' \
@@ -53,7 +53,7 @@ jobs:
               | tail -1)
             keymap_c="keyboards/${kb}/keymaps/${km}/keymap.c"
             if [ -f "$keymap_c" ]; then
-              echo "::group::${kb}:${km} → ${name}.yaml"
+              echo "::group::${kb}:${km} → ${name}"
               # Extract layer names from enum (strip leading _)
               layers=$(sed -n '/enum.*layer/,/};/p' "$keymap_c" \
                 | grep -oP '_[A-Z_]+' | sed 's/^_//' \
@@ -65,15 +65,11 @@ jobs:
               qmk c2json -kb "$kb" -km "$km" "$keymap_c" \
                 | keymap -c keymap_drawer.config.yaml parse -q - $layer_arg \
                 > "keymap-drawer/${name}.yaml"
+              keymap -c keymap_drawer.config.yaml draw \
+                -k "$kb" "keymap-drawer/${name}.yaml" \
+                -o "keymap-drawer/${name}.svg"
               echo "::endgroup::"
             fi
-          done
-
-      - name: Draw SVGs
-        run: |
-          for yaml in keymap-drawer/*.yaml; do
-            keymap -c keymap_drawer.config.yaml draw "$yaml" \
-              -o "${yaml%.yaml}.svg"
           done
 
       - name: Generate keymap-drawer README
