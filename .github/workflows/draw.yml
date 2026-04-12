@@ -24,23 +24,12 @@ jobs:
       - name: Install keymap-drawer
         run: pipx install keymap-drawer
 
-      - name: Draw crkbd SVG
-        run: >
-          keymap -c keymap_drawer.config.yaml draw
-          keymap-drawer/crkbd.yaml
-          -o keymap-drawer/crkbd.svg
-
-      - name: Draw portico SVG
-        run: >
-          keymap -c keymap_drawer.config.yaml draw
-          keymap-drawer/portico.yaml
-          -o keymap-drawer/portico.svg
-
-      - name: Draw lulu SVG
-        run: >
-          keymap -c keymap_drawer.config.yaml draw
-          keymap-drawer/lulu.yaml
-          -o keymap-drawer/lulu.svg
+      - name: Draw SVGs
+        run: |
+          for yaml in keymap-drawer/*.yaml; do
+            keymap -c keymap_drawer.config.yaml draw "$yaml" \
+              -o "${yaml%.yaml}.svg"
+          done
 
       - name: Commit updated images
         uses: stefanzweifel/git-auto-commit-action@v5
