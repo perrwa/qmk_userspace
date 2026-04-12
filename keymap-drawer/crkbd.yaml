@@ -1,6 +1,6 @@
 layout: {qmk_keyboard: crkbd/rev1}
 layers:
-  Base:
+  QWERTY:
   - $$material:keyboard_tab$$
   - Q
   - W
@@ -13,7 +13,7 @@ layers:
   - O
   - P
   - $$material:keyboard_backspace$$
-  - {t: '$$material:logout$$', h: $$more_down$$}
+  - LT( NAVPLY,ESC)
   - A
   - S
   - D
@@ -24,7 +24,7 @@ layers:
   - K
   - L
   - ;
-  - "'"
+  - ''''
   - $$material:shift$$
   - Z
   - X
@@ -38,12 +38,12 @@ layers:
   - /
   - {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
   - {t: (, h: '$$material:keyboard_option_key$$'}
-  - {t: '$$material:space_bar$$', h: $$more_up$$}
-  - {t: '$$material:keyboard_return$$', h: '$$material:keyboard_command_key$$'}
-  - {t: '$$material:keyboard_return$$', h: '$$material:keyboard_command_key$$'}
-  - {t: '$$material:space_bar$$', h: $$more_up$$}
+  - LT( LOWER,SPC)
+  - {t: '$$material:keyboard_return$$', h: LGUI}
+  - {t: '$$material:keyboard_return$$', h: LGUI}
+  - LT( LOWER,SPC)
   - {t: ), h: '$$material:keyboard_control_key$$'}
-  Gamer:
+  GAMER:
   - $$material:keyboard_tab$$
   - Q
   - W
@@ -67,7 +67,7 @@ layers:
   - K
   - L
   - ;
-  - "'"
+  - ''''
   - $$material:shift$$
   - Z
   - X
@@ -81,12 +81,12 @@ layers:
   - /
   - {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
   - $$material:keyboard_option_key$$
-  - $$more_up$$
+  - MO( LOWER)
   - $$material:space_bar$$
-  - {t: '$$material:keyboard_return$$', h: '$$material:keyboard_control_key$$'}
-  - {t: '$$material:space_bar$$', h: $$more_up$$}
+  - {t: '$$material:keyboard_return$$', h: RCTL}
+  - LT( LOWER,SPC)
   - $$material:keyboard_command_key$$
-  Symbols:
+  LOWER:
   - '`'
   - '1'
   - '2'
@@ -99,18 +99,18 @@ layers:
   - '9'
   - '0'
   - \
-  - $$calculate$$
-  - ''
-  - ''
-  - $$material:switch_left$$
-  - $$material:switch_right$$
+  - MO( NUMPAD)
+  - 'NO'
+  - 'NO'
+  - Sft+Gui+LBRC
+  - Sft+Gui+RBRC
   - '['
   - ']'
   - '-'
   - '='
-  - ''
-  - ''
-  - ''
+  - 'NO'
+  - 'NO'
+  - 'NO'
   - {t: ▽, type: trans}
   - F1
   - F2
@@ -124,93 +124,93 @@ layers:
   - F10
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
-  Nav:
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  NAVPLY:
+  - 'NO'
+  - 'NO'
   - $$material:no_sound$$
   - $$material:volume_down$$
   - $$material:volume_up$$
-  - ''
+  - 'NO'
   - $$material:keyboard_double_arrow_left$$
   - $$material:keyboard_double_arrow_down$$
   - $$material:keyboard_double_arrow_up$$
   - $$material:keyboard_double_arrow_right$$
-  - ''
+  - 'NO'
   - $$material:delete$$
-  - {type: held}
-  - ''
+  - {t: ▽, type: trans}
+  - 'NO'
   - $$material:skip_previous$$
   - $$material:play_pause$$
   - $$material:skip_next$$
-  - ''
+  - 'NO'
   - $$material:arrow_left$$
   - $$material:arrow_drop_down$$
   - $$material:arrow_drop_up$$
   - $$material:arrow_right$$
-  - ''
+  - 'NO'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
   - {t: ▽, type: trans}
-  - $$calculate$$
+  - MO( NUMPAD)
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
+  - 'NO'
   - {t: ▽, type: trans}
-  Numpad:
-  - ''
-  - ''
-  - ''
+  NUMPAD:
+  - 'NO'
+  - 'NO'
+  - 'NO'
   - RGB Reset
   - $$material:palette$$
   - $$material:lightbulb$$
-  - ''
+  - 'NO'
   - '7'
   - '8'
   - '9'
   - +
   - '*'
-  - {type: held}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
   - '4'
   - '5'
   - '6'
   - '-'
   - /
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
+  - 'NO'
   - '1'
   - '2'
   - '3'
-  - ''
-  - ''
-  - Gamer
-  - {type: held}
+  - 'NO'
+  - 'NO'
+  - TG( GAMER)
+  - {t: ▽, type: trans}
   - $$material:123$$
   - {t: ▽, type: trans}
   - '0'
