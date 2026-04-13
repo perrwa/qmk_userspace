@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r qmk_firmware/requirements.txt
-          pipx install keymap-drawer
+          pip install keymap-drawer
 
       - name: Configure QMK CLI
         run: |
