@@ -1,12 +1,17 @@
-name: Draw keymaps
+# Auto-generate keymap visualizations from keymap.c files.
+# Uses qmk c2json to convert C → JSON, then keymap-drawer to parse → draw SVGs.
+# Based on: https://github.com/caksoylar/keymap-drawer/issues/177
+name: Draw QMK keymaps
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - "keyboards/**/keymap.c"
+      - "keyboards/**/config.h"
+      - "keyboards/**/rules.mk"
       - "keymap_drawer.config.yaml"
-      - "keymap-drawer/*.yaml"
+      - ".github/workflows/draw.yml"
 
 concurrency:
   group: draw
@@ -15,23 +20,78 @@ concurrency:
 jobs:
   draw:
     runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli:latest
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: Checkout userspace
         uses: actions/checkout@v4
 
-      - name: Install keymap-drawer
-        run: pipx install keymap-drawer
+      - name: Checkout QMK firmware
+        uses: actions/checkout@v4
+        with:
+          repository: qmk/qmk_firmware
+          ref: master
+          path: qmk_firmware
+          submodules: recursive
 
-      - name: Draw SVGs
+      - name: Install dependencies
         run: |
-          for yaml in keymap-drawer/*.yaml; do
-            keymap -c keymap_drawer.config.yaml draw "$yaml" \
-              -o "${yaml%.yaml}.svg"
+          pip install -r qmk_firmware/requirements.txt
+          pip install keymap-drawer
+
+      - name: Configure QMK CLI
+        run: |
+          qmk config user.qmk_home=$GITHUB_WORKSPACE/qmk_firmware
+          qmk config user.overlay_dir=$GITHUB_WORKSPACE
+
+      - name: Generate YAMLs and draw SVGs
+        shell: bash
+        run: |
+          set -o pipefail
+          jq -r '.build_targets[] | "\(.[0]) \(.[1])"' qmk.json | while read -r kb km; do
+            name=$(echo "$kb" | tr '/' '\n' \
+              | grep -vE '^(rev[0-9]+|avr|rp2040|stm32|nrf52|arm|ble|usb)$' \
+              | tail -1)
+            keymap_c="keyboards/${kb}/keymaps/${km}/keymap.c"
+            if [ -f "$keymap_c" ]; then
+              echo "::group::${kb}:${km} → ${name}"
+              # Extract layer names from enum (strip leading _)
+              layers=$(sed -n '/enum.*layer/,/};/p' "$keymap_c" \
+                | grep -oP '_[A-Z_]+' | sed 's/^_//' \
+                | tr '\n' ' ' || true)
+              layer_arg=""
+              layer_sed=""
+              if [ -n "$layers" ]; then
+                layer_arg="-l $layers"
+                # Replace named layers with numeric indices so keymap-drawer's
+                # built-in LT/MO/TG parsers can match (they expect digits)
+                idx=0
+                for layer in $layers; do
+                  layer_sed="${layer_sed}s/\b_${layer}\b/${idx}/g;"
+                  idx=$((idx + 1))
+                done
+                # Strip space after comma in LT() to match parser regex
+                layer_sed="${layer_sed}s/LT\(([0-9]+), /LT(\1,/g"
+              fi
+              qmk c2json -kb "$kb" -km "$km" "$keymap_c" \
+                | if [ -n "$layer_sed" ]; then sed -E "$layer_sed"; else cat; fi \
+                | keymap -c keymap_drawer.config.yaml parse -q - $layer_arg \
+                > "keymap-drawer/${name}.yaml"
+              # Post-process YAML: fix layout ref and toggle key styling
+              sed -i \
+                -e "s|^layout:.*|layout: {qmk_keyboard: ${kb}}|" \
+                -e "s/, h: toggle}/, type: toggle}/g" \
+                "keymap-drawer/${name}.yaml"
+              keymap -c keymap_drawer.config.yaml draw \
+                "keymap-drawer/${name}.yaml" \
+                -o "keymap-drawer/${name}.svg"
+              echo "::endgroup::"
+            fi
           done
 
       - name: Generate keymap-drawer README
+        shell: bash
         run: |
           cd keymap-drawer
           shopt -s nullglob
@@ -48,8 +108,13 @@ jobs:
             done
           } > README.md
 
-      - name: Commit updated images
+      - name: Clean up firmware checkout
+        run: |
+          rm -rf qmk_firmware/
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Commit updated visualizations
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: 'keymap-drawer/*.svg keymap-drawer/README.md'
+          file_pattern: 'keymap-drawer/*.yaml keymap-drawer/*.svg keymap-drawer/README.md'
           commit_message: "chore: update keymap-drawer visualizations"

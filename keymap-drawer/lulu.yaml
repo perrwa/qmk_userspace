@@ -1,124 +1,10 @@
 layout: {qmk_keyboard: boardsource/lulu/avr}
 layers:
-  Base:
-  - $$material:logout$$
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - '`'
-  - $$material:keyboard_tab$$
-  - Q
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - P
-  - '-'
-  - $$material:keyboard_control_key$$
-  - A
-  - S
-  - D
-  - F
-  - G
-  - H
-  - J
-  - K
-  - L
-  - ;
-  - ''''
-  - $$material:shift$$
-  - Z
-  - X
-  - C
-  - V
-  - B
-  - '['
-  - ']'
-  - N
-  - M
-  - ','
-  - .
-  - /
-  - $$material:shift$$
-  - $$material:keyboard_option_key$$
-  - $$material:keyboard_command_key$$
-  - Lower
-  - $$material:space_bar$$
-  - $$material:keyboard_return$$
-  - Raise
-  - $$material:keyboard_backspace$$
-  - $$material:keyboard_command_key$$
-  Raise:
-  - $$material:palette$$
-  - $$material:palette$$
-  - Sat+
-  - Sat-
-  - $$material:brightness_high$$
-  - $$material:brightness_low$$
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '`'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - {t: ▽, type: trans}
-  - F1
-  - F2
-  - F3
-  - F4
-  - F5
-  - F6
-  - ''
-  - $$material:arrow_left$$
-  - $$material:arrow_drop_down$$
-  - $$material:arrow_drop_up$$
-  - $$material:arrow_right$$
-  - ''
-  - F7
-  - F8
-  - F9
-  - F10
-  - F11
-  - F12
-  - $$material:lightbulb$$
-  - {t: ▽, type: trans}
-  - +
-  - '-'
-  - '='
-  - '['
-  - ']'
-  - \
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  Lower:
+  QWERTY: ['$$material:logout$$', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '`', '$$material:keyboard_tab$$', Q, W, E, R, T, Y, U, I, O, P, '-', '$$material:keyboard_control_key$$',
+    A, S, D, F, G, H, J, K, L, ;, '''', '$$material:shift$$', Z, X, C, V, B, '[', ']', N, M, ',', ., /, '$$material:shift$$', '$$material:keyboard_option_key$$',
+    '$$material:keyboard_command_key$$', '$$material:more_up$$', '$$material:space_bar$$', '$$material:keyboard_return$$', '$$material:more_up$$', '$$material:keyboard_backspace$$',
+    '$$material:keyboard_command_key$$']
+  RAISE:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -171,13 +57,72 @@ layers:
   - '|'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  LOWER:
+  - $$material:palette$$
+  - $$material:palette$$
+  - $$material:humidity_high$$
+  - $$material:humidity_low$$
+  - $$material:brightness_high$$
+  - $$material:brightness_low$$
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - ''
+  - $$material:arrow_left$$
+  - $$material:arrow_drop_down$$
+  - $$material:arrow_drop_up$$
+  - $$material:arrow_right$$
+  - ''
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
+  - $$material:lightbulb$$
+  - {t: ▽, type: trans}
+  - +
+  - '-'
+  - '='
+  - '['
+  - ']'
+  - \
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  Adjust:
+  ADJUST:
   - ''
   - ''
   - ''
@@ -230,9 +175,9 @@ layers:
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}

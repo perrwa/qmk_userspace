@@ -23,32 +23,24 @@ draw_config:
     .shifted    { fill: #00CED1; }
     .right      { fill: #9370DB; }
     .left       { fill: #FFD700; }
-    .held       { fill: #ffeedd; }
+    .held       { fill: #ddffdd; }
+    rect.toggle { fill: #ffeedd; }
+    [class~="material:joystick"] { fill: #2E8B57 !important; }
     /* Per-layer tap colors — crkbd */
-    .layer-Gamer .tap   { fill: #2E8B57; }
-    .layer-Symbols .tap { fill: #00CED1; }
-    .layer-Nav .tap     { fill: #FF7F50; }
-    .layer-Numpad .tap  { fill: #9370DB; }
+    .layer-GAMER .tap   { fill: #2E8B57; }
+    .layer-LOWER .tap   { fill: #00CED1; }
+    .layer-NAVPLY .tap  { fill: #FF7F50; }
+    .layer-NUMPAD .tap  { fill: #9370DB; }
     /* Per-layer tap colors — portico */
-    .layer-Fn .tap      { fill: #4682B4; }
+    .layer-L1 .tap      { fill: #4682B4; }
     /* Per-layer tap colors — lulu */
-    .layer-Lower .tap   { fill: #00CED1; }
-    .layer-Raise .tap   { fill: #FF7F50; }
-    .layer-Adjust .tap  { fill: #DAA520; }
-    /* Custom glyph colors */
-    .more_down  { fill: #FF7F50 !important; }
-    .more_up    { fill: #00CED1 !important; }
-    .calculate  { fill: #9370DB !important; }
-  glyphs:
-    more_down: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
-      d="M200-200v-440h80v360h360v80H200Zm200-200v-440h80v360h360v80H400Z"/></svg>
-    more_up: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
-      d="M680-320v-360H320v-80h440v440h-80ZM480-120v-360H120v-80h440v440h-80Z"/></svg>
-    calculate: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path
-      d="M320-240h60v-80h80v-60h-80v-80h-60v80h-80v60h80v80Zm200-30h200v-60H520v60Zm0-100h200v-60H520v60Zm44-152
-      56-56 56 56 42-42-56-58 56-56-42-42-56 56-56-56-42 42 56 56-56 58 42 42Zm-314-70h200v-60H250v60Zm-50
-      472q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0
-      33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+    .layer-LOWER .tap   { fill: #00CED1; }
+    .layer-RAISE .tap   { fill: #FF7F50; }
+    .layer-ADJUST .tap  { fill: #DAA520; }
+    /* Material glyph colors for layer legends */
+    [class~="material:more_down"]  { fill: #FF7F50 !important; }
+    [class~="material:more_up"]    { fill: #00CED1 !important; }
+    [class~="material:calculate"]  { fill: #9370DB !important; }
 
 parse_config:
   qmk_keycode_map:
@@ -143,7 +135,7 @@ parse_config:
     KC_PAST: "*"
     KC_PSLS: /
     KC_PDOT: .
-    KC_NUM: $$material:123$$
+    KC_NUM: $$material:pin$$
 
     # RGB / special (display as icons or short labels)
     RM_TOGG: $$material:lightbulb$$
@@ -151,27 +143,38 @@ parse_config:
     RM_PREV: $$material:palette$$
     RM_VALU: $$material:brightness_high$$
     RM_VALD: $$material:brightness_low$$
-    RM_SATU: "Sat+"
-    RM_SATD: "Sat-"
+    RM_SATU: $$material:humidity_high$$
+    RM_SATD: $$material:humidity_low$$
     RGB_TOG: $$material:lightbulb$$
     RGB_MOD: $$material:palette$$
-    RGB_SPI: "Spd+"
-    RGB_HUI: "Hue+"
-    RGB_SAI: "Sat+"
+    RGB_SPI: $$material:speed$$
+    RGB_HUI: $$material:colors$$
+    RGB_SAI: $$material:humidity_high$$
     RGB_VAI: $$material:brightness_high$$
-    NK_TOGG: "NKey"
+    NK_TOGG: $$material:bolt_boost$$
 
     # Custom keycodes from crkbd keymap
-    _RGBRST: "RGB Reset"
+    _RGBRST: $$material:brightness_alert$$
     _SGLBRC: $$material:switch_left$$
     _SGRBRC: $$material:switch_right$$
+    # Expanded forms when cpp resolves SGUI() macros
+    SGUI(KC_LBRC): $$material:switch_left$$
+    SGUI(KC_RBRC): $$material:switch_right$$
 
   raw_binding_map:
+    KC_NO: ""
     SC_SENT: {t: '$$material:keyboard_return$$', h: '$$material:shift$$'}
     SC_LAPO: {t: (, h: '$$material:keyboard_option_key$$'}
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
+    SGUI(KC_LBRC): $$material:switch_left$$
+    SGUI(KC_RBRC): $$material:switch_right$$
+    "LGUI_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_command_key$$'}
+    "RCTL_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_control_key$$'}
 
   layer_legend_map:
-    Symbols: $$more_up$$
-    Nav: $$more_down$$
-    Numpad: $$calculate$$
+    LOWER: $$material:more_up$$
+    NAVPLY: $$material:more_down$$
+    NUMPAD: $$material:calculate$$
+    RAISE: $$material:more_up$$
+    ADJUST: $$material:calculate$$
+    GAMER: $$material:joystick$$
