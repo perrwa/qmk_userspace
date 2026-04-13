@@ -61,10 +61,21 @@ jobs:
                 | grep -oP '_[A-Z_]+' | sed 's/^_//' \
                 | tr '\n' ' ' || true)
               layer_arg=""
+              layer_sed=""
               if [ -n "$layers" ]; then
                 layer_arg="-l $layers"
+                # Replace named layers with numeric indices so keymap-drawer's
+                # built-in LT/MO/TG parsers can match (they expect digits)
+                idx=0
+                for layer in $layers; do
+                  layer_sed="${layer_sed}s/\b_${layer}\b/${idx}/g;"
+                  idx=$((idx + 1))
+                done
+                # Strip space after comma in LT() to match parser regex
+                layer_sed="${layer_sed}s/LT\(([0-9]+), /LT(\1,/g"
               fi
               qmk c2json -kb "$kb" -km "$km" "$keymap_c" \
+                | if [ -n "$layer_sed" ]; then sed -E "$layer_sed"; else cat; fi \
                 | keymap -c keymap_drawer.config.yaml parse -q - $layer_arg \
                 > "keymap-drawer/${name}.yaml"
               # Replace generic LAYOUT with just the keyboard reference

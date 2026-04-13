@@ -166,12 +166,6 @@ parse_config:
     SC_RCPC: {t: ), h: '$$material:keyboard_control_key$$'}
     SGUI(KC_LBRC): $$material:switch_left$$
     SGUI(KC_RBRC): $$material:switch_right$$
-    "LT(_NAVPLY, KC_ESC)": {t: '$$material:logout$$', h: '$$material:more_down$$'}
-    "LT(_LOWER, KC_SPC)": {t: '$$material:space_bar$$', h: '$$material:more_up$$'}
-    "MO(_LOWER)": $$material:more_up$$
-    "MO(_RAISE)": $$material:more_up$$
-    "MO(_NUMPAD)": $$material:calculate$$
-    "TG(_GAMER)": $$material:joystick$$
     "LGUI_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_command_key$$'}
     "RCTL_T(KC_ENT)": {t: '$$material:keyboard_return$$', h: '$$material:keyboard_control_key$$'}
 
@@ -181,3 +175,4 @@ parse_config:
     NUMPAD: $$material:calculate$$
     RAISE: $$material:more_up$$
     ADJUST: $$material:calculate$$
+    GAMER: $$material:joystick$$
