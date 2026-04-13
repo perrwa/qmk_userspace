@@ -28,7 +28,7 @@ concurrency:
 jobs:
   draw:
     runs-on: ubuntu-latest
-    container: ghcr.io/qmk/qmk_cli:latest
+    container: ghcr.io/qmk/qmk_cli:1.2.0
     timeout-minutes: 15
     permissions:
       contents: write
@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r qmk_firmware/requirements.txt
-          pip install keymap-drawer
+          pip install keymap-drawer==0.23.0
 
       - name: Configure QMK CLI
         run: |
