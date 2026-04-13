@@ -23,8 +23,8 @@ draw_config:
     .shifted    { fill: #00CED1; }
     .right      { fill: #9370DB; }
     .left       { fill: #FFD700; }
-    .held       { fill: #ffeedd; }
-    rect.toggle { fill: #ddffdd; }
+    .held       { fill: #ddffdd; }
+    rect.toggle { fill: #ffeedd; }
     .material-joystick { fill: #2E8B57 !important; }
     /* Per-layer tap colors — crkbd */
     .layer-GAMER .tap   { fill: #2E8B57; }
