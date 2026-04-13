@@ -124,7 +124,7 @@ layers:
   - F10
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -142,7 +142,7 @@ layers:
   - $$material:keyboard_double_arrow_right$$
   - ''
   - $$material:delete$$
-  - {t: ▽, type: trans}
+  - {type: held}
   - ''
   - $$material:skip_previous$$
   - $$material:play_pause$$
@@ -185,7 +185,7 @@ layers:
   - '9'
   - +
   - '*'
-  - {t: ▽, type: trans}
+  - {type: held}
   - ''
   - ''
   - ''
@@ -209,8 +209,8 @@ layers:
   - '3'
   - ''
   - ''
-  - $$material:joystick$$
-  - {t: ▽, type: trans}
+  - {t: '$$material:joystick$$', h: toggle}
+  - {type: held}
   - $$material:pin$$
   - {t: ▽, type: trans}
   - '0'
