@@ -2,15 +2,15 @@ name: Release QMK firmware
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "keymap-drawer/**"
+      - "keymap_drawer.config.yaml"
   workflow_dispatch:
     inputs:
       tag:
         description: "Existing tag to release (e.g., v25.08.1)"
         required: true
         type: string
-
-permissions:
-  contents: write
 
 concurrency:
   group: release
@@ -19,6 +19,8 @@ concurrency:
 jobs:
   build:
     name: 'QMK Userspace Build'
+    permissions:
+      contents: write
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: qmk/qmk_firmware
@@ -28,6 +30,9 @@ jobs:
     name: 'QMK Userspace Release'
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
     steps:
       - name: Checkout (for tag listing)
         uses: actions/checkout@v4
@@ -45,12 +50,7 @@ jobs:
             PREFIX="v$(date +%y.%m)"
             LAST=$(git tag -l "${PREFIX}.*" --sort=-v:refname | head -n1)
             if [ -n "$LAST" ]; then
-              SUFFIX=${LAST##*.}
-              if echo "$SUFFIX" | grep -qE '^[0-9]+$'; then
-                N=$(( SUFFIX + 1 ))
-              else
-                N=1
-              fi
+              N=$(( ${LAST##*.} + 1 ))
             else
               N=1
             fi
