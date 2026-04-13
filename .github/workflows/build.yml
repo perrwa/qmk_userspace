@@ -4,17 +4,53 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 concurrency:
-  group: build-${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  check-changes:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: read
+    outputs:
+      firmware: ${{ steps.filter.outputs.firmware }}
+    steps:
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            firmware:
+              - 'keyboards/**'
+              - 'users/**'
+              - 'qmk.json'
+              - '.github/workflows/build.yml'
+
   build:
+    needs: check-changes
+    if: always() && (needs.check-changes.outputs.firmware == 'true' || needs.check-changes.result == 'skipped')
     name: 'QMK Userspace Build'
+    permissions:
+      contents: write
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
+
+  # Gate job that always runs — use this as the required status check
+  # instead of internal reusable-workflow jobs that may be skipped.
+  build-result:
+    if: always()
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - run: |
+          if [ "${{ needs.build.result }}" = "failure" ] || [ "${{ needs.build.result }}" = "cancelled" ]; then
+            echo "Build did not succeed (result: ${{ needs.build.result }})"
+            exit 1
+          fi
+          echo "Build OK (result: ${{ needs.build.result }})"
