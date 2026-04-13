@@ -234,7 +234,7 @@ path.combo {
 .shifted    { fill: #00CED1; }
 .right      { fill: #9370DB; }
 .left       { fill: #FFD700; }
-.held       { fill: #ddffdd; }
+rect.held, rect.combo.held { fill: #ddffdd; }
 rect.toggle { fill: #ffeedd; }
 [class~="material:joystick"] { fill: #2E8B57 !important; }
 /* Per-layer tap colors — crkbd */
