@@ -222,24 +222,24 @@ path.combo {
 .shifted    { fill: #00CED1; }
 .right      { fill: #9370DB; }
 .left       { fill: #FFD700; }
-.held       { fill: #ffeedd; }
-rect.toggle { fill: #ddffdd; }
-.material-joystick { fill: #2E8B57 !important; }
+.held       { fill: #ddffdd; }
+rect.toggle { fill: #ffeedd; }
+[class~="material:joystick"] { fill: #2E8B57 !important; }
 /* Per-layer tap colors — crkbd */
 .layer-GAMER .tap   { fill: #2E8B57; }
 .layer-LOWER .tap   { fill: #00CED1; }
 .layer-NAVPLY .tap  { fill: #FF7F50; }
 .layer-NUMPAD .tap  { fill: #9370DB; }
 /* Per-layer tap colors — portico */
-.layer-1 .tap       { fill: #4682B4; }
+.layer-L1 .tap      { fill: #4682B4; }
 /* Per-layer tap colors — lulu */
 .layer-LOWER .tap   { fill: #00CED1; }
 .layer-RAISE .tap   { fill: #FF7F50; }
 .layer-ADJUST .tap  { fill: #DAA520; }
 /* Material glyph colors for layer legends */
-.material-more_down  { fill: #FF7F50 !important; }
-.material-more_up    { fill: #00CED1 !important; }
-.material-calculate  { fill: #9370DB !important; }</style>
+[class~="material:more_down"]  { fill: #FF7F50 !important; }
+[class~="material:more_up"]    { fill: #00CED1 !important; }
+[class~="material:calculate"]  { fill: #9370DB !important; }</style>
 <g transform="translate(30, 0)" class="layer-L0">
 <text x="0" y="28" class="label" id="L0">L0:</text>
 <g transform="translate(0, 56)">
