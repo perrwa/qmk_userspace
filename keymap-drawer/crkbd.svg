@@ -235,6 +235,8 @@ path.combo {
 .right      { fill: #9370DB; }
 .left       { fill: #FFD700; }
 .held       { fill: #ffeedd; }
+rect.toggle { fill: #ddffdd; }
+.material-joystick { fill: #2E8B57 !important; }
 /* Per-layer tap colors — crkbd */
 .layer-GAMER .tap   { fill: #2E8B57; }
 .layer-LOWER .tap   { fill: #00CED1; }
@@ -1054,10 +1056,9 @@ path.combo {
 <g transform="translate(609, 121)" class="key keypos-35">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
 </g>
-<g transform="translate(168, 154)" class="key keypos-36">
-<rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key"/>
-<use href="#material:joystick" xlink:href="#material:joystick" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:joystick"/>
-<text x="0" y="17" class="key hold">toggle</text>
+<g transform="translate(168, 154)" class="key toggle keypos-36">
+<rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key toggle"/>
+<use href="#material:joystick" xlink:href="#material:joystick" x="-7" y="-7" height="14" width="14.0" class="key toggle tap glyph material:joystick"/>
 </g>
 <g transform="translate(214, 160) rotate(15.0)" class="key held keypos-37">
 <rect rx="6" ry="6" x="-19" y="-19" width="38" height="38" class="key held"/>

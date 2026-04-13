@@ -223,6 +223,8 @@ path.combo {
 .right      { fill: #9370DB; }
 .left       { fill: #FFD700; }
 .held       { fill: #ffeedd; }
+rect.toggle { fill: #ddffdd; }
+.material-joystick { fill: #2E8B57 !important; }
 /* Per-layer tap colors — crkbd */
 .layer-GAMER .tap   { fill: #2E8B57; }
 .layer-LOWER .tap   { fill: #00CED1; }

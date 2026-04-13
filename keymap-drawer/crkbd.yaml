@@ -209,7 +209,7 @@ layers:
   - '3'
   - ''
   - ''
-  - {t: '$$material:joystick$$', h: toggle}
+  - {t: '$$material:joystick$$', type: toggle}
   - {type: held}
   - $$material:pin$$
   - {t: ▽, type: trans}
