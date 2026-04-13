@@ -78,8 +78,10 @@ jobs:
                 | if [ -n "$layer_sed" ]; then sed -E "$layer_sed"; else cat; fi \
                 | keymap -c keymap_drawer.config.yaml parse -q - $layer_arg \
                 > "keymap-drawer/${name}.yaml"
-              # Replace generic LAYOUT with just the keyboard reference
-              sed -i "s|^layout:.*|layout: {qmk_keyboard: ${kb}}|" \
+              # Post-process YAML: fix layout ref and toggle key styling
+              sed -i \
+                -e "s|^layout:.*|layout: {qmk_keyboard: ${kb}}|" \
+                -e "s/, h: toggle}/, type: toggle}/g" \
                 "keymap-drawer/${name}.yaml"
               keymap -c keymap_drawer.config.yaml draw \
                 "keymap-drawer/${name}.yaml" \
