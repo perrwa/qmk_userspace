@@ -50,7 +50,12 @@ jobs:
             PREFIX="v$(date +%y.%m)"
             LAST=$(git tag -l "${PREFIX}.*" --sort=-v:refname | head -n1)
             if [ -n "$LAST" ]; then
-              N=$(( ${LAST##*.} + 1 ))
+              SUFFIX=${LAST##*.}
+              if echo "$SUFFIX" | grep -qE '^[0-9]+$'; then
+                N=$(( SUFFIX + 1 ))
+              else
+                N=1
+              fi
             else
               N=1
             fi
