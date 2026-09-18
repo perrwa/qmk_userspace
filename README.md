@@ -1,5 +1,7 @@
 # QMK Userspace
 
+[![Build QMK firmware](https://github.com/perrwa/qmk_userspace/actions/workflows/build.yml/badge.svg)](https://github.com/perrwa/qmk_userspace/actions/workflows/build.yml)
+
 Custom keymaps maintained separately from the [main QMK repository](https://github.com/qmk/qmk_firmware) using the [QMK Userspace](https://github.com/qmk/qmk_userspace) template. Firmware is built automatically with GitHub Actions on push.
 
 ## Keyboards
