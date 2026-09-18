@@ -18,7 +18,7 @@ jobs:
     outputs:
       firmware: ${{ steps.filter.outputs.firmware }}
     steps:
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@0e4a8c6effa4802afeda77dc8d303f8176d7dfad # v3
         id: filter
         with:
           filters: |
@@ -34,7 +34,7 @@ jobs:
     name: 'QMK Userspace Build'
     permissions:
       contents: write
-    uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
+    uses: ./.github/workflows/_userspace-build.yml
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master

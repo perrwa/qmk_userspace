@@ -21,7 +21,7 @@ jobs:
     name: 'QMK Userspace Build'
     permissions:
       contents: write
-    uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
+    uses: ./.github/workflows/_userspace-build.yml
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
@@ -35,7 +35,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout (for tag listing)
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-tags: true
           fetch-depth: 0
@@ -65,7 +65,7 @@ jobs:
           TAG: ${{ github.event.inputs.tag || '' }}
 
       - name: Download firmware artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: Firmware
           path: ./release
@@ -76,7 +76,7 @@ jobs:
           find ./release -type f \( -name '*.hex' -o -name '*.bin' -o -name '*.uf2' \) -exec cp {} ./flat/ \;
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           tag_name: ${{ steps.tag.outputs.name }}
           name: ${{ steps.tag.outputs.name }}
