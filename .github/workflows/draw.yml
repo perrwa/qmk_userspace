@@ -35,12 +35,12 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: ${{ github.head_ref || github.ref }}
 
       - name: Checkout QMK firmware
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: qmk/qmk_firmware
           ref: master
@@ -127,7 +127,7 @@ jobs:
 
       - name: Open PR with updated visualizations
         if: github.ref == 'refs/heads/main'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           commit-message: "chore: update keymap-drawer visualizations"
           branch: chore/update-keymap-drawings
@@ -143,7 +143,7 @@ jobs:
           github.ref != 'refs/heads/main'
           && (github.event_name != 'pull_request'
               || github.event.pull_request.head.repo.full_name == github.repository)
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
         with:
           file_pattern: 'keymap-drawer/*.yaml keymap-drawer/*.svg keymap-drawer/README.md'
           commit_message: "chore: update keymap-drawer visualizations"
